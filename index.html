@@ -353,6 +353,51 @@
                 font-size: 2rem;
             }
         }
+
+        /* ========== TOAST NOTIFICATION ========== */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--olive-green);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    font-size: 1rem;
+    z-index: 9999;
+    animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+.toast-icon {
+    font-size: 1.5rem;
+}
+        
     </style>
 </head>
 <body>
@@ -398,7 +443,7 @@
             <p class="timer-message" id="timer-message"></p>
         </section>
 
-        <!-- PRODUCTS SECTION -->
+ <!-- PRODUCTS SECTION -->
         <section class="products-section">
             <h2>Our Pasta Selection</h2>
             <div class="products-grid">
@@ -409,48 +454,51 @@
                     <div class="size-options">
                         <div class="size-option">
                             <span class="size-label">750 ml</span>
-                            <span class="size-price">$549</span>
+                            <span class="size-price">Rs 549</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Creamy Alfredo', '750ml', 549)">Add</button>
                         </div>
                         <div class="size-option">
                             <span class="size-label">500 ml</span>
-                            <span class="size-price">$399</span>
+                            <span class="size-price">Rs 399</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Creamy Alfredo', '500ml', 399)">Add</button>
                         </div>
                     </div>
-                    <button class="add-to-cart" onclick="addToCart('Creamy Alfredo')">Add to Cart</button>
                 </div>
 
                 <!-- PRODUCT 2 -->
                 <div class="product-card">
                     <img src="Images/blk ppr mac.jpg" alt="Black pepper Macroni" class="product-image">
-                    <h3 class="product-name">Black pepper Macroni</h3>
+                    <h3 class="product-name">Black Pepper Macroni</h3>
                     <div class="size-options">
                         <div class="size-option">
                             <span class="size-label">750 ml</span>
-                            <span class="size-price">$449</span>
+                            <span class="size-price">Rs 449</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Black Pepper Macroni', '750ml', 449)">Add</button>
                         </div>
                         <div class="size-option">
                             <span class="size-label">500 ml</span>
-                            <span class="size-price">$299</span>
+                            <span class="size-price">Rs 299</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Black Pepper Macroni', '500ml', 299)">Add</button>
                         </div>
                     </div>
-                    <button class="add-to-cart" onclick="addToCart('Black pepper Macroni')">Add to Cart</button>
                 </div>
 
                 <!-- PRODUCT 3 -->
                 <div class="product-card">
                     <img src="Images/spicy chicken.jpg" alt="Spicy chicken pasta" class="product-image">
-                    <h3 class="product-name">Spicy chicken pasta</h3>
+                    <h3 class="product-name">Spicy Chicken Pasta</h3>
                     <div class="size-options">
                         <div class="size-option">
                             <span class="size-label">750 ml</span>
-                            <span class="size-price">$449</span>
+                            <span class="size-price">Rs 449</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Spicy Chicken Pasta', '750ml', 449)">Add</button>
                         </div>
                         <div class="size-option">
                             <span class="size-label">500 ml</span>
-                            <span class="size-price">$299</span>
+                            <span class="size-price">Rs 299</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Spicy Chicken Pasta', '500ml', 299)">Add</button>
                         </div>
                     </div>
-                    <button class="add-to-cart" onclick="addToCart('Spicy chicken pasta')">Add to Cart</button>
                 </div>
 
                 <!-- PRODUCT 4 -->
@@ -460,14 +508,15 @@
                     <div class="size-options">
                         <div class="size-option">
                             <span class="size-label">750 ml</span>
-                            <span class="size-price">$499</span>
+                            <span class="size-price">Rs 499</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Peri Peri Chicken Pasta', '750ml', 499)">Add</button>
                         </div>
                         <div class="size-option">
                             <span class="size-label">500 ml</span>
-                            <span class="size-price">$379</span>
+                            <span class="size-price">Rs 379</span>
+                            <button class="add-to-cart" style="padding: 10px 20px; width: auto; margin-left: 10px;" onclick="addToCart('Peri Peri Chicken Pasta', '500ml', 379)">Add</button>
                         </div>
                     </div>
-                    <button class="add-to-cart" onclick="addToCart('Peri Peri Chicken Pasta')">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -477,15 +526,16 @@
     <footer>
         <div class="social-section">
             <h3>Follow Us</h3>
-            <a href="https://instagram.com/flavour.hubb" class="https://www.instagram.com/flavour.hubb?igsh=aXVrMThyZ3E3aWxq" target="_blank">
+            <a href="https://www.instagram.com/flavour.hubb/" class="instagram-link" target="_blank">
                 <i class="fab fa-instagram"></i>
-                 @flavourhub
+                @flavour.hubb
             </a>
         </div>
-        <p class="delivery-note"><b>🚚 Delivery Only</b> </p>
+        <p class="delivery-note"><b>🚚 Delivery Only</b></p>
         <p>&copy; 2025 Flavour Hub. All rights reserved.</p>
     </footer>
-
+    <!-- FOOTER -->
+  
     <script>
         /* ========== COUNTDOWN TIMER LOGIC ========== */
         // ADJUST OPENING AND CLOSING HOURS HERE (24-hour format)
@@ -541,69 +591,28 @@
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call
 
-        /* ========== ADD TO CART FUNCTIONALITY ========== */
-/*let cart = [];
-
-function addToCart(productName, size, price) {
-    // Add item to cart array
-    cart.push({
-        name: productName,
-        size: size,
-        price: price
-    });
-    
-    // Show confirmation
-    alert(`${productName} (${size}) added to cart! 🍝`);
-    
-    // Update cart display
-    updateCartDisplay();
-}
-
-function updateCartDisplay() {
-    const cartCount = cart.length;
-    // You can add a cart icon in header that shows item count
-    document.getElementById('cart-count').textContent = cartCount;
-}
-
-function viewCart() {
-    if (cart.length === 0) {
-        alert('Your cart is empty! 🍝');
-        return;
-    }
-    
-    // Create order message
-    let message = '🍝 *My Flavour Hub Order*\n\n';
-    let total = 0;
-    
-    cart.forEach((item, index) => {
-        message += `${index + 1}. ${item.name} - ${item.size}\n   Price: $${item.price}\n\n`;
-        total += parseFloat(item.price);
-    });
-    
-    message += `*Total: $${total.toFixed(2)}*\n\n`;
-    message += 'Please confirm my order and delivery details.';
-    
-    // Encode message for URL
-    const encodedMessage = encodeURIComponent(message);
-    
-    // Replace with your Instagram username or WhatsApp number
-    // For WhatsApp: Use your business number (with country code, no + or spaces)
-    const whatsappNumber = '923001234567'; // Example: Pakistan number
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
-    // Open WhatsApp with pre-filled message
-    window.open(whatsappURL, '_blank');
-}
-
-function clearCart() {
-    cart = [];
-    updateCartDisplay();
-    alert('Cart cleared! 🍝');
-}
-    */
-   /* ========== ADD TO CART FUNCTIONALITY New ========== */
+/* ========== ADD TO CART FUNCTIONALITY ========== */
 let cart = [];
 
+function showToast(message, icon = '🍝') {
+    // Remove any existing toast
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    // Create new toast
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
+    document.body.appendChild(toast);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
 function addToCart(productName, size, price) {
     // Add item to cart array
     cart.push({
@@ -612,8 +621,8 @@ function addToCart(productName, size, price) {
         price: price
     });
     
-    // Show confirmation
-    alert(`${productName} (${size}) added to cart! 🍝`);
+    // Show stylish toast notification
+    showToast(`${productName} (${size}) added to cart!`);
     
     // Update cart display
     updateCartDisplay();
@@ -621,13 +630,15 @@ function addToCart(productName, size, price) {
 
 function updateCartDisplay() {
     const cartCount = cart.length;
-    // You can add a cart icon in header that shows item count
-    document.getElementById('cart-count').textContent = cartCount;
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        cartCountElement.textContent = cartCount;
+    }
 }
 
 function viewCart() {
     if (cart.length === 0) {
-        alert('Your cart is empty! 🍝');
+        showToast('Your cart is empty!', '🛒');
         return;
     }
     
@@ -636,31 +647,65 @@ function viewCart() {
     let total = 0;
     
     cart.forEach((item, index) => {
-        message += `${index + 1}. ${item.name} - ${item.size}\n   Price: $${item.price}\n\n`;
+        message += `${index + 1}. ${item.name} - ${item.size}\n   Price: Rs ${item.price}\n\n`;
         total += parseFloat(item.price);
     });
     
-    message += `Total: $${total.toFixed(2)}\n\n`;
-    message += 'Please copy this order and send it to us on Instagram!';
+    message += `Total: Rs ${total}\n\n`;
+    message += 'Please confirm my order and delivery details.';
     
-    // Show order summary and copy to clipboard
-    navigator.clipboard.writeText(message).then(() => {
-        alert(message + '\n\n✅ Order copied to clipboard!\nNow paste it in our Instagram DM.');
-        // Open Instagram profile
-        window.open('https://www.instagram.com/flavour.hubb/', '_blank');
-    }).catch(() => {
-        // If clipboard doesn't work, just show the message
-        alert(message + '\n\n📋 Please copy this order and send it to us on Instagram!');
-        window.open('https://www.instagram.com/flavour.hubb/', '_blank');
-    });
+    // Try to copy to clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(message).then(() => {
+            showToast('Order copied! Opening Instagram...', '✅');
+            setTimeout(() => {
+                window.open('https://www.instagram.com/flavour.hubb/', '_blank');
+            }, 1000);
+        }).catch(() => {
+            // Fallback if clipboard fails
+            showOrderModal(message);
+        });
+    } else {
+        // Fallback for browsers that don't support clipboard
+        showOrderModal(message);
+    }
+}
+
+function showOrderModal(message) {
+    // Show message in a nicer way
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+        z-index: 10000;
+        max-width: 500px;
+        width: 90%;
+    `;
+    
+    modal.innerHTML = `
+        <h3 style="color: var(--charcoal); margin-bottom: 15px;">Your Order</h3>
+        <pre style="background: var(--bg-beige); padding: 15px; border-radius: 10px; white-space: pre-wrap; font-family: inherit;">${message}</pre>
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button onclick="navigator.clipboard.writeText(\`${message.replace(/`/g, '\\`')}\`).then(() => alert('Copied!')); this.parentElement.parentElement.remove();" style="flex: 1; padding: 12px; background: var(--olive-green); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">Copy Order</button>
+            <button onclick="window.open('https://www.instagram.com/flavour.hubb/', '_blank'); this.parentElement.parentElement.remove();" style="flex: 1; padding: 12px; background: var(--charcoal); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">Open Instagram</button>
+            <button onclick="this.parentElement.parentElement.remove();" style="padding: 12px 20px; background: #ccc; color: var(--charcoal); border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">Close</button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
 }
 
 function clearCart() {
     cart = [];
     updateCartDisplay();
-    alert('Cart cleared! 🍝');
+    showToast('Cart cleared!', '🗑️');
 }
-
         /* ========== SMOOTH SCROLL EFFECT ========== */
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
@@ -673,3 +718,4 @@ function clearCart() {
 </body>
 
 </html>
+

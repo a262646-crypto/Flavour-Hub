@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour Hub - Authentic Italian Pasta Delivered</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== COLOR PALETTE ========== */
+        :root {
+            --bg-beige: #F5F5DC;
+            --olive-green: #808000;
+            --olive-hover: #6b6b00;
+            --charcoal: #36454F;
+            --white: #ffffff;
+            /* ADJUST HEADER IMAGE TRANSPARENCY HERE (0.0 to 1.0) */
+            --header-overlay-opacity: 0.3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-beige);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER WITH FLOATING BACKGROUND ========== */
+        .header-wrapper {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 500px;
+            background-image: url(Images/new\ bg.webp);
+            background-size: 80%;
+            background-position: right;
+            z-index: -1;
+        }
+
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-beige);
+            /* TRANSPARENCY CONTROLLED HERE */
+            opacity: var(--header-overlay-opacity);
+        }
+
+        header {
+            position: relative;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--charcoal);
+            z-index: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .basil-icon {
+            font-size: 3rem;
+            color: var(--olive-green);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo h1 {
+            font-size: 4rem;
+            color: var(--charcoal);
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--olive-green);
+            font-style: italic;
+            margin-top: 10px;
+            margin-left: 35%;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* ========== TIMER SECTION ========== */
+        .timer-section {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 60px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .timer-section h2 {
+            color: var(--charcoal);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .hours-display {
+            font-size: 1.2rem;
+            color: var(--olive-green);
+            margin-bottom: 25px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background-color: var(--olive-green);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+
+        .time-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timer-message {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            font-style: italic;
+        }
+
+        /* ========== PRODUCTS SECTION ========== */
+        .products-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--charcoal);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .products-section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--olive-green);
+            margin: 15px auto 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 4px solid var(--olive-green);
+            transition: border-color 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            border-color: var(--olive-hover);
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+
+        .size-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .size-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: var(--bg-beige);
+            border-radius: 10px;
+        }
+
+        .size-label {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        .size-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--olive-green);
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--olive-green);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--olive-hover);
+            transform: scale(1.05);
+        }
+
+        /* ========== FOOTER / SOCIAL ========== */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .social-section {
+            margin-bottom: 20px;
+        }
+
+        .social-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            color: var(--olive-green);
+        }
+
+        .instagram-link i {
+            font-size: 1.5rem;
+        }
+
+        .delivery-note {
+            font-style: italic;
+            margin-top: 20px;
+            color: var(--bg-beige);
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+
+            .basil-icon {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .header-wrapper,
+            .header-bg,
+            header {
+                height: 300px;
+            }
+
+            .products-section h2 {
+                font-size: 2rem;
+            }
+
+            .product-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .time-unit {
+                padding: 15px 20px;
+                min-width: 80px;
+            }
+
+            .time-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FLOATING HEADER BACKGROUND -->
+    <div class="header-bg"></div>
+    
+    <div class="header-wrapper">
+        <header>
+            <div class="logo">
+                <i class="fas fa-leaf basil-icon"></i>
+                <h1>Flavour Hub</h1>
+            </div>
+            <p class="tagline"><b>Authentic Italian Pasta, Delivered Fresh</b></p>
+            <div style="margin-top: 20px;">
+    <button onclick="viewCart()" style="background-color: var(--olive-green); color: white; padding: 12px 30px; border: none; border-radius: 25px; font-size: 1.1rem; cursor: pointer; font-family: Georgia, serif;">
+        🛒 View Cart (<span id="cart-count">0</span>)
+    </button>
+</div>
+        </header>
+    </div>
+
+    <div class="container">
+        <!-- TIMER SECTION -->
+        <section class="timer-section">
+            <h2>Order Hours</h2>
+            <div class="hours-display">
+                <strong>Open:</strong> 11:00 AM - 08:00 PM Daily
+            </div>
+            <div class="countdown" id="countdown">
+                <div class="time-unit">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+            <p class="timer-message" id="timer-message"></p>
+        </section>
+
+        <!-- PRODUCTS SECTION -->
+        <section class="products-section">
+            <h2>Our Pasta Selection</h2>
+            <div class="products-grid">
+                <!-- PRODUCT 1: ADD MORE PRODUCTS BY COPYING THIS STRUCTURE -->
+                <div class="product-card">
+                    <img src="Images/alfredo.jpg" alt="Creamy Alfredo" class="product-image">
+                    <h3 class="product-name">Creamy Alfredo</h3>
+                    <div class="size-options">
+                        <div class="size-option">
+                            <span class="size-label">750 ml</span>
+                            <span class="size-price">$549</span>
+                        </div>
+                        <div class="size-option">
+                            <span class="size-label">500 ml</span>
+                            <span class="size-price">$399</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Creamy Alfredo')">Add to Cart</button>
+                </div>
+
+                <!-- PRODUCT 2 -->
+                <div class="product-card">
+                    <img src="Images/blk ppr mac.jpg" alt="Black pepper Macroni" class="product-image">
+                    <h3 class="product-name">Black pepper Macroni</h3>
+                    <div class="size-options">
+                        <div class="size-option">
+                            <span class="size-label">750 ml</span>
+                            <span class="size-price">$449</span>
+                        </div>
+                        <div class="size-option">
+                            <span class="size-label">500 ml</span>
+                            <span class="size-price">$299</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Black pepper Macroni')">Add to Cart</button>
+                </div>
+
+                <!-- PRODUCT 3 -->
+                <div class="product-card">
+                    <img src="Images/spicy chicken.jpg" alt="Spicy chicken pasta" class="product-image">
+                    <h3 class="product-name">Spicy chicken pasta</h3>
+                    <div class="size-options">
+                        <div class="size-option">
+                            <span class="size-label">750 ml</span>
+                            <span class="size-price">$449</span>
+                        </div>
+                        <div class="size-option">
+                            <span class="size-label">500 ml</span>
+                            <span class="size-price">$299</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Spicy chicken pasta')">Add to Cart</button>
+                </div>
+
+                <!-- PRODUCT 4 -->
+                <div class="product-card">
+                    <img src="Images/peri-peri.jpg" alt="Peri-Peri" class="product-image">
+                    <h3 class="product-name">Peri Peri Chicken Pasta</h3>
+                    <div class="size-options">
+                        <div class="size-option">
+                            <span class="size-label">750 ml</span>
+                            <span class="size-price">$499</span>
+                        </div>
+                        <div class="size-option">
+                            <span class="size-label">500 ml</span>
+                            <span class="size-price">$379</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Peri Peri Chicken Pasta')">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="social-section">
+            <h3>Follow Us</h3>
+            <a href="https://instagram.com/flavour.hubb" class="https://www.instagram.com/flavour.hubb?igsh=aXVrMThyZ3E3aWxq" target="_blank">
+                <i class="fab fa-instagram"></i>
+                 @flavourhub
+            </a>
+        </div>
+        <p class="delivery-note"><b>🚚 Delivery Only</b> </p>
+        <p>&copy; 2025 Flavour Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* ========== COUNTDOWN TIMER LOGIC ========== */
+        // ADJUST OPENING AND CLOSING HOURS HERE (24-hour format)
+        const OPENING_HOUR = 11; // 11 AM
+        const CLOSING_HOUR = 22; // 10 PM
+
+        function updateCountdown() {
+            const now = new Date();
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const currentSecond = now.getSeconds();
+
+            let targetTime = new Date(now);
+            let message = '';
+            let isOpen = false;
+
+            // Check if currently open (between opening and closing hours)
+            if (currentHour >= OPENING_HOUR && currentHour < CLOSING_HOUR) {
+                // Currently OPEN - count down to closing time
+                isOpen = true;
+                targetTime.setHours(CLOSING_HOUR, 0, 0, 0);
+                message = '⏰ Order now! Closing soon...';
+            } else {
+                // Currently CLOSED - count down to next opening
+                isOpen = false;
+                if (currentHour >= CLOSING_HOUR) {
+                    // After closing, count to tomorrow's opening
+                    targetTime.setDate(targetTime.getDate() + 1);
+                }
+                targetTime.setHours(OPENING_HOUR, 0, 0, 0);
+                message = '😴 We\'re closed. Opening soon...';
+            }
+
+            const diff = targetTime - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('timer-message').textContent = message;
+
+            // Change timer colors based on open/closed status
+            const timeUnits = document.querySelectorAll('.time-unit');
+            timeUnits.forEach(unit => {
+                unit.style.backgroundColor = isOpen ? 'var(--olive-green)' : '#8b0000';
+            });
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        /* ========== ADD TO CART FUNCTIONALITY ========== */
+/*let cart = [];
+
+function addToCart(productName, size, price) {
+    // Add item to cart array
+    cart.push({
+        name: productName,
+        size: size,
+        price: price
+    });
+    
+    // Show confirmation
+    alert(`${productName} (${size}) added to cart! 🍝`);
+    
+    // Update cart display
+    updateCartDisplay();
+}
+
+function updateCartDisplay() {
+    const cartCount = cart.length;
+    // You can add a cart icon in header that shows item count
+    document.getElementById('cart-count').textContent = cartCount;
+}
+
+function viewCart() {
+    if (cart.length === 0) {
+        alert('Your cart is empty! 🍝');
+        return;
+    }
+    
+    // Create order message
+    let message = '🍝 *My Flavour Hub Order*\n\n';
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        message += `${index + 1}. ${item.name} - ${item.size}\n   Price: $${item.price}\n\n`;
+        total += parseFloat(item.price);
+    });
+    
+    message += `*Total: $${total.toFixed(2)}*\n\n`;
+    message += 'Please confirm my order and delivery details.';
+    
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Replace with your Instagram username or WhatsApp number
+    // For WhatsApp: Use your business number (with country code, no + or spaces)
+    const whatsappNumber = '923001234567'; // Example: Pakistan number
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp with pre-filled message
+    window.open(whatsappURL, '_blank');
+}
+
+function clearCart() {
+    cart = [];
+    updateCartDisplay();
+    alert('Cart cleared! 🍝');
+}
+    */
+   /* ========== ADD TO CART FUNCTIONALITY New ========== */
+let cart = [];
+
+function addToCart(productName, size, price) {
+    // Add item to cart array
+    cart.push({
+        name: productName,
+        size: size,
+        price: price
+    });
+    
+    // Show confirmation
+    alert(`${productName} (${size}) added to cart! 🍝`);
+    
+    // Update cart display
+    updateCartDisplay();
+}
+
+function updateCartDisplay() {
+    const cartCount = cart.length;
+    // You can add a cart icon in header that shows item count
+    document.getElementById('cart-count').textContent = cartCount;
+}
+
+function viewCart() {
+    if (cart.length === 0) {
+        alert('Your cart is empty! 🍝');
+        return;
+    }
+    
+    // Create order message
+    let message = '🍝 My Flavour Hub Order\n\n';
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        message += `${index + 1}. ${item.name} - ${item.size}\n   Price: $${item.price}\n\n`;
+        total += parseFloat(item.price);
+    });
+    
+    message += `Total: $${total.toFixed(2)}\n\n`;
+    message += 'Please copy this order and send it to us on Instagram!';
+    
+    // Show order summary and copy to clipboard
+    navigator.clipboard.writeText(message).then(() => {
+        alert(message + '\n\n✅ Order copied to clipboard!\nNow paste it in our Instagram DM.');
+        // Open Instagram profile
+        window.open('https://www.instagram.com/flavour.hubb/', '_blank');
+    }).catch(() => {
+        // If clipboard doesn't work, just show the message
+        alert(message + '\n\n📋 Please copy this order and send it to us on Instagram!');
+        window.open('https://www.instagram.com/flavour.hubb/', '_blank');
+    });
+}
+
+function clearCart() {
+    cart = [];
+    updateCartDisplay();
+    alert('Cart cleared! 🍝');
+}
+
+        /* ========== SMOOTH SCROLL EFFECT ========== */
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const headerBg = document.querySelector('.header-bg');
+            if (headerBg) {
+                headerBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
